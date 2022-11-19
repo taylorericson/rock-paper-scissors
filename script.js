@@ -1,7 +1,14 @@
 let playerScore = 0;
 let computerScore = 0;
+let playerChoice;
 
-game();
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playRound(button.id, getComputerChoice());
+    });
+});
 
 
 function getComputerChoice() {
@@ -17,7 +24,7 @@ function getComputerChoice() {
 }       
 
 function playRound(playerChoice, computerChoice) {
-    
+    console.log(`You chose ${playerChoice}. The computer chose ${computerChoice}.`);
     if(playerChoice === computerChoice) {
         console.log(`It's a tie! You both chose ${playerChoice}`);
     } else {
@@ -58,12 +65,6 @@ function playRound(playerChoice, computerChoice) {
 }
 
 function game() {
-
-    for(let i = 0; i < 5; i++) {
-        let computerChoice = getComputerChoice();
-        playRound(prompt("What is your choice? (rock, paper, scissors)").toLowerCase(),
-        computerChoice);
-    }
 
     if(playerScore === computerScore) {
         console.log("It's a tie game!");
