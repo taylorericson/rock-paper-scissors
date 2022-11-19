@@ -1,8 +1,9 @@
 let playerScore = 0;
 let computerScore = 0;
-
-const scoreboard = document.querySelector(".scoreboard");
 const buttons = document.querySelectorAll("button");
+const scoreboard = document.querySelector(".scoreboard");
+const playerScoreboard = document.querySelector(".player-scoreboard");
+const computerScoreboard = document.querySelector(".computer-scoreboard");
 const result = document.querySelector(".result");
 
 buttons.forEach((button) => {
@@ -11,64 +12,24 @@ buttons.forEach((button) => {
     });
 });
 
-
 function getComputerChoice() {
-    let choice = Math.floor((Math.random() * 3) + 1);
-    
-    if(choice === 1) {
-        return "rock";
-    } else if(choice === 2) {
-        return "paper"; 
-    } else {    
-        return "scissors";
-    }
+    let choices = ['rock', 'paper', 'scissors'];
+    return choices[Math.floor(Math.random() * choices.length)];
 }       
 
-function playRound(playerChoice, computerChoice) {
+function playRound(playerChoice) {
+    let computerChoice = getComputerChoice();
 
-    if(playerChoice === computerChoice) {
-        result.textContent = `You chose ${playerChoice}. The computer chose ${computerChoice}.
-        It's a tie!`;
+    if ((playerChoice === 'rock' && computerChoice === 'scissors') ||
+        (playerChoice === 'paper' && computerChoice === 'rock') ||
+        (playerChoice === 'scissors' && computerChoice === 'paper')) {
+        playerScore += 1;
+        result.textContent = `You win! ${playerChoice} beats ${computerChoice}`;
+    } else if (playerChoice === computerChoice) {
+        result.textContent = `It's a tie! You both chose ${playerChoice}`;
     } else {
-
-        if(playerChoice === "rock") {
-
-            if(computerChoice === "paper") {
-                result.textContent = `You chose ${playerChoice}. The computer chose ${computerChoice}.
-                You lose! ${computerChoice} beats ${playerChoice}`;
-                computerScore += 1;
-            } else {
-                result.textContent = `You chose ${playerChoice}. The computer chose ${computerChoice}.
-                You win! ${playerChoice} beats ${computerChoice}`;
-                playerScore += 1;
-            }
-        }
-
-        if(playerChoice === "paper") {
-
-            if(computerChoice === "scissors") {
-                result.textContent = `You chose ${playerChoice}. The computer chose ${computerChoice}.
-                You lose! ${computerChoice} beats ${playerChoice}`;
-                computerScore += 1;
-            } else {
-                result.textContent = `You chose ${playerChoice}. The computer chose ${computerChoice}.
-                You win! ${playerChoice} beats ${computerChoice}`;
-                playerScore += 1;
-            }
-        }
-
-        if(playerChoice === "scissors") {
-
-            if(computerChoice === "rock") {
-                result.textContent = `You chose ${playerChoice}. The computer chose ${computerChoice}.
-                You lose! ${computerChoice} beats ${playerChoice}`;
-                computerScore += 1;
-            } else {
-                result.textContent = `You chose ${playerChoice}. The computer chose ${computerChoice}.
-                You win! ${playerChoice} beats ${computerChoice}`;
-                playerScore += 1;
-            }
-        }
+        computerScore += 1;
+        result.textContent = `You lose! ${computerChoice} beats ${playerChoice}.`;
     }
     updateScore();
     
@@ -78,14 +39,15 @@ function playRound(playerChoice, computerChoice) {
 }
 
 function updateScore() {
-    scoreboard.textContent = `Score: ${playerScore} to ${computerScore}`;
+    playerScoreboard.textContent = `Player score: ${playerScore}`;
+    computerScoreboard.textContent = `Computer score: ${computerScore}`;
 }
 
 function gameOver() {
     if(playerScore === 5) {
-        result.textContent = `GAME OVER: YOU WIN!`;
+        result.textContent = `GAME OVER: YOU WIN!🎉`;
     } else {
-        result.textContent = `GAME OVER: YOU LOSE!`;
+        result.textContent = `GAME OVER: YOU LOSE!😔`;
     }
     disableButtons();
 }
