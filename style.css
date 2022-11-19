@@ -1,14 +1,14 @@
 html {
-    background-color: lightslategray;
+    background-color: #222831;
 }
 
 .header-container {
     display: flex;
     justify-content: center;
-    background-color: lightcyan;
-    color: black;
+    background-color: #111720;
+    color: goldenrod;
     font-size: 32px;
-
+    margin: none;
 }
 
 .scoreboard {
@@ -16,9 +16,9 @@ html {
     justify-content: center;
     gap: 50px;
     margin-bottom: 20px;
-    background-color: lightgoldenrodyellow;
     font-size: 24px;
     font-weight: 800;
+    color: white;
     padding: 30px
 }
 
@@ -35,14 +35,20 @@ html {
     display: flex;
     justify-content: center;
     gap: 50px;
-    background-color: lightcyan;
     padding: 50px;
 }
 
+button:hover {
+    background-color: #4a4f57;
+}
+
 button {
-    width: 150px;
-    height: 75px;
-    font-size: 24px;
+    width: 160px;
+    height: 160px;
+    font-size: 80px;
     font-weight: 800;
+    background-color: #393e46;
+    cursor: pointer;
+    border-radius: 5%;
 }
 
