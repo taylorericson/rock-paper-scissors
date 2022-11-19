@@ -8,7 +8,7 @@ const result = document.querySelector(".result");
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        playRound(button.id, getComputerChoice());
+        playRound(button.value);
     });
 });
 
