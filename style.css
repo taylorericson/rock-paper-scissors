@@ -1,5 +1,5 @@
 html {
-    background-color: #3a434f;
+    background-color: #0b7462;
 }
 
 body {
@@ -10,8 +10,8 @@ body {
 .header-container {
     display: flex;
     justify-content: center;
-    background-color: #272a2f;
-    color: #d8bf80;
+    background-color: #08443e;
+    color: lightgoldenrodyellow;
     font-size: 32px;
 }
 
@@ -20,8 +20,8 @@ body {
     justify-content: center;
     gap: 50px;
     margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 800;
+    font-size: 32px;
+    
     color: white;
     padding: 30px
 }
@@ -33,6 +33,7 @@ body {
     background-color: lightgoldenrodyellow;
     padding: 30px;
     font-size: 20px;
+    font-weight: 800;
 }
 
 .buttons-container {
@@ -59,7 +60,7 @@ button {
 }
 
 .footer {
-    background-color: #272a2f;
+    background-color: #08443e;
     display: flex;
     align-items: center;
     justify-content: center;
