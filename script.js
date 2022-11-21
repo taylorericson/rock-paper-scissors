@@ -4,6 +4,7 @@ const buttons = document.querySelectorAll("button");
 const scoreboard = document.querySelector(".scoreboard");
 const playerScoreboard = document.querySelector(".player-scoreboard");
 const computerScoreboard = document.querySelector(".computer-scoreboard");
+const choose = document.querySelector(".choose");
 const result = document.querySelector(".result");
 
 buttons.forEach((button) => {
@@ -24,12 +25,15 @@ function playRound(playerChoice) {
         (playerChoice === 'paper' && computerChoice === 'rock') ||
         (playerChoice === 'scissors' && computerChoice === 'paper')) {
         playerScore += 1;
-        result.textContent = `You win! ${playerChoice} beats ${computerChoice}`;
+        choose.textContent = "You win!";
+        result.textContent = `${playerChoice} beats ${computerChoice}`;
     } else if (playerChoice === computerChoice) {
-        result.textContent = `It's a tie! You both chose ${playerChoice}`;
+        choose.textContent = "It's a tie!";
+        result.textContent = `You both chose ${playerChoice}`;
     } else {
         computerScore += 1;
-        result.textContent = `You lose! ${computerChoice} beats ${playerChoice}.`;
+        choose.textContent = "You lose!";
+        result.textContent = `${computerChoice} beats ${playerChoice}`;
     }
     updateScore();
     

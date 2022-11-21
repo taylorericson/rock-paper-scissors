@@ -1,14 +1,18 @@
 html {
-    background-color: #222831;
+    background-color: #3a434f;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
 }
 
 .header-container {
     display: flex;
     justify-content: center;
-    background-color: #111720;
-    color: goldenrod;
+    background-color: #272a2f;
+    color: #d8bf80;
     font-size: 32px;
-    margin: none;
 }
 
 .scoreboard {
@@ -39,7 +43,8 @@ html {
 }
 
 button:hover {
-    background-color: #4a4f57;
+    background-color: #3c4047;
+    transform: scale(1.5);
 }
 
 button {
@@ -47,8 +52,36 @@ button {
     height: 160px;
     font-size: 80px;
     font-weight: 800;
-    background-color: #393e46;
+    background-color: #272a2f;
     cursor: pointer;
     border-radius: 5%;
+    transition: transform .4s ease-in-out;
 }
+
+.footer {
+    background-color: #272a2f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 42px;
+    color: white;
+    gap: 20px;
+    height: 300px;
+}
+
+.footer p:hover {
+    transform: rotate(5deg);
+}
+
+.fa-github {
+    color: white;
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+.fa-github:hover {
+    transform: scale(2);
+    cursor: pointer;
+  }
 
